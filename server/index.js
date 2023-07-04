@@ -9,6 +9,7 @@ import clientRoutes from './routes/client.js';
 import generalRoutes from './routes/general.js';
 import managementRoutes from './routes/management.js';
 import salesRoutes from './routes/sales.js';
+import connectDB from './db/connect.js';
 
 /* CONFIGURATION */
 dotenv.config();
@@ -26,3 +27,18 @@ app.use('/client', clientRoutes);
 app.use('/general', generalRoutes);
 app.use('management', managementRoutes);
 app.use('/sales', salesRoutes);
+
+/* MONGOOSE SETUP */
+
+const PORT = process.env.PORT || 5000;
+
+const start = async () => {
+  try {
+    await connectDB(process.env.MONGO_URI);
+    app.listen(PORT, console.log(`App listening on port ${PORT}....`));
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+start();
