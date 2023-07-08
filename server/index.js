@@ -11,6 +11,10 @@ import managementRoutes from './routes/management.js';
 import salesRoutes from './routes/sales.js';
 import connectDB from './db/connect.js';
 
+// data imports
+import User from './models/User.js';
+import { dataUser } from './data/index.js';
+
 /* CONFIGURATION */
 dotenv.config();
 const app = express();
@@ -35,7 +39,12 @@ const PORT = process.env.PORT || 5000;
 const start = async () => {
   try {
     await connectDB(process.env.MONGO_URI);
-    app.listen(PORT, console.log(`App listening on port ${PORT}....`));
+    app.listen(
+      PORT,
+      console.log(
+        `DB connected successfully, App listening on port ${PORT}....`
+      )
+    );
   } catch (error) {
     console.log(error.message);
   }
