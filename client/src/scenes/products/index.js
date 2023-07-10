@@ -26,7 +26,7 @@ const Product = ({
 }) => {
   const theme = useTheme();
   const [isExpanded, setIsExpanded] = useState(false);
-  console.log(stat);
+
   return (
     <Card
       sx={{
@@ -84,7 +84,7 @@ const Product = ({
 
 function Products() {
   const { data, isLoading } = useGetProductsQuery();
-  console.log('Products ~ data:', data);
+
   const isNonMobile = useMediaQuery('(min-width: 1000px)');
 
   return (
