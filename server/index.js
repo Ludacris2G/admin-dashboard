@@ -11,20 +11,6 @@ import managementRoutes from './routes/management.js';
 import salesRoutes from './routes/sales.js';
 import connectDB from './db/connect.js';
 
-// data imports
-import User from './models/User.js';
-import Product from './models/Product.js';
-import ProductStat from './models/ProductStat.js';
-import Transaction from './models/Transaction.js';
-import OverallStat from './models/OverallStat.js';
-import {
-  dataUser,
-  dataProduct,
-  dataProductStat,
-  dataTransaction,
-  dataOverallStat,
-} from './data/index.js';
-
 /* CONFIGURATION */
 dotenv.config();
 const app = express();
@@ -39,7 +25,7 @@ app.use(cors());
 /* ROUTES */
 app.use('/client', clientRoutes);
 app.use('/general', generalRoutes);
-app.use('management', managementRoutes);
+app.use('/management', managementRoutes);
 app.use('/sales', salesRoutes);
 
 /* MONGOOSE SETUP */
