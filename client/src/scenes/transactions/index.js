@@ -57,7 +57,7 @@ function Transactions() {
     <Box m='1.5rem 2.5rem'>
       <Header title='TRANSACTIONS' subtitle='Entire list of transactions' />
       <Box
-        height='75vh'
+        height='72vh'
         sx={{
           '& .MuiDataGrid-root': {
             border: 'none',

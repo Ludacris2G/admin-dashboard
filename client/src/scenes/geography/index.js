@@ -14,7 +14,7 @@ function Geography() {
       <Header title='GEOGRAPHY' subtitle='Find where your users are located' />
       <Box
         mt='40px'
-        height='75vh'
+        height='67vh'
         border={`1px solid ${theme.palette.secondary[200]}`}
         borderRadius='4px'
       >

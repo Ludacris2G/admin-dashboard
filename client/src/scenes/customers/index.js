@@ -54,7 +54,7 @@ function Customers() {
       <Header title='CUSTOMERS' subtitle='List of Customers' />
       <Box
         mt='7px'
-        height='75vh'
+        height='72vh'
         sx={{
           '& .MuiDataGrid-root': {
             border: 'none',

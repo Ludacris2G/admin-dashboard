@@ -7,7 +7,7 @@ function Breakdown() {
   return (
     <Box m='1.5rem 2.5rem'>
       <Header title='BREAKDOWN' subtitle='Breakdown of sales by Category' />
-      <Box mt='40px' height='75vh'>
+      <Box mt='40px' height='67vh'>
         <BreakdownChart />
       </Box>
     </Box>

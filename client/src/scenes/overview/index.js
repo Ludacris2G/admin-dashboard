@@ -8,7 +8,7 @@ function Overview() {
   return (
     <Box m='1.5rem 2.5rem'>
       <Header title='OVERVIEW' subtitle='General overview and profit' />
-      <Box height='75vh'>
+      <Box height='65vh'>
         <FormControl sx={{ mt: '1rem' }}>
           <InputLabel>View</InputLabel>
           <Select
