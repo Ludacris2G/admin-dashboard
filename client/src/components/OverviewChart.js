@@ -94,6 +94,7 @@ function OverviewChart({ isDashboard = false, view }) {
         stacked: false,
         reverse: false,
       }}
+      enableArea={isDashboard}
       yFormat=' >-.2f'
       curve='catmullRom'
       axisTop={null}
@@ -111,6 +112,7 @@ function OverviewChart({ isDashboard = false, view }) {
         legendPosition: 'middle',
       }}
       axisLeft={{
+        tickValues: 5,
         tickSize: 5,
         tickPadding: 5,
         tickRotation: 0,

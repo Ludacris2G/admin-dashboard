@@ -94,17 +94,17 @@ function BreakdownChart({ isDashboard = false }) {
         legends={[
           {
             anchor: 'bottom',
-            direction: 'row',
+            direction: isDashboard ? 'column' : 'row',
             justify: false,
             translateX: isDashboard ? 20 : 0,
-            translateY: isDashboard ? 50 : 56,
-            itemsSpacing: 0,
-            itemWidth: 85,
+            translateY: isDashboard ? 65 : 56,
+            itemsSpacing: isDashboard ? 2 : 0,
+            itemWidth: isDashboard ? 80 : 85,
             itemHeight: 18,
             itemTextColor: '#999',
             itemDirection: 'left-to-right',
             itemOpacity: 1,
-            symbolSize: 18,
+            symbolSize: isDashboard ? 12 : 18,
             symbolShape: 'circle',
             effects: [
               {

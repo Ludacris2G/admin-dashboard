@@ -74,7 +74,7 @@ function Transactions() {
             backgroundColor: theme.palette.primary.light,
           },
           '& .MuiDataGrid-footerContainer': {
-            backgroundColor: theme.palette.primary.light,
+            backgroundColor: theme.palette.background.alt,
             color: theme.palette.secondary[100],
             borderTop: 'none',
           },
