@@ -1,5 +1,6 @@
 import User from '../models/User.js';
 import Transaction from '../models/Transaction.js';
+import mongoose from 'mongoose';
 
 export const getAdmins = async (req, res) => {
   try {
