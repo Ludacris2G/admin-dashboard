@@ -23,6 +23,7 @@ import StatsBox from 'components/StatsBox';
 
 const Dashboard = () => {
   const theme = useTheme();
+  const isNonMobile = useMediaQuery('(min-width: 600px)');
   const isNonMediumScreens = useMediaQuery('(min-width: 1200px)');
   const { data, isLoading } = useGetDashboardQuery();
 
@@ -57,23 +58,27 @@ const Dashboard = () => {
   ];
 
   return (
-    <Box m='1.5rem 2.5rem'>
+    <Box m='1.5rem 2.5rem' p='0 0 2rem 0'>
       <FlexBetween>
         <Header title='DASHBOARD' subtitle='Welcome to your dashboard' />
-        <Box>
-          <Button
-            sx={{
-              backgroundColor: theme.palette.secondary.light,
-              color: theme.palette.background.alt,
-              fontSize: '14px',
-              fontWeight: 'bold',
-              padding: '10px 20px',
-            }}
-          >
-            <DownloadOutlined sx={{ mr: '10px' }} />
-            Download Reports
-          </Button>
-        </Box>
+        {isNonMobile && (
+          <>
+            <Box>
+              <Button
+                sx={{
+                  backgroundColor: theme.palette.secondary.light,
+                  color: theme.palette.background.alt,
+                  fontSize: '14px',
+                  fontWeight: 'bold',
+                  padding: '10px 20px',
+                }}
+              >
+                <DownloadOutlined sx={{ mr: '10px' }} />
+                Download Reports
+              </Button>
+            </Box>
+          </>
+        )}
       </FlexBetween>
       <Box
         mt='20px'
@@ -177,26 +182,33 @@ const Dashboard = () => {
             columns={columns}
           />
         </Box>
-        <Box
-          gridColumn='span 4'
-          gridRow='span 3'
-          backgroundColor={theme.palette.background.alt}
-          p='1.5rem'
-          borderRadius='0.55rem'
-        >
-          <Typography variant='h6' sx={{ color: theme.palette.secondary[100] }}>
-            Sales By Category
-          </Typography>
-          <BreakdownChart isDashboard={true} />
-          <Typography
-            p='0 0.6rem'
-            fontSize='0.8rem'
-            sx={{ colr: theme.palette.secondary[200] }}
-          >
-            Breakdown of real estates and information via category for revenue
-            made for this year and total sales.
-          </Typography>
-        </Box>
+        {isNonMobile && (
+          <>
+            <Box
+              gridColumn='span 4'
+              gridRow='span 3'
+              backgroundColor={theme.palette.background.alt}
+              p='1.5rem'
+              borderRadius='0.55rem'
+            >
+              <Typography
+                variant='h6'
+                sx={{ color: theme.palette.secondary[100] }}
+              >
+                Sales By Category
+              </Typography>
+              <BreakdownChart isDashboard={true} />
+              <Typography
+                p='0 0.6rem'
+                fontSize='0.8rem'
+                sx={{ colr: theme.palette.secondary[200] }}
+              >
+                Breakdown of real estates and information via category for
+                revenue made for this year and total sales.
+              </Typography>
+            </Box>
+          </>
+        )}
       </Box>
     </Box>
   );

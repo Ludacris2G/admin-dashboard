@@ -26,6 +26,7 @@ function Layout() {
           user={data || {}}
           isSidebarOpen={isSidebarOpen}
           setIsSidebarOpen={setIsSidebarOpen}
+          isNonMobile={isNonMobile}
         />
         <Outlet />
       </Box>

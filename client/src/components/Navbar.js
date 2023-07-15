@@ -21,12 +21,14 @@ import {
   MenuItem,
   Toolbar,
   Typography,
+  useMediaQuery,
   useTheme,
 } from '@mui/material';
 
-const Navbar = ({ isSidebarOpen, setIsSidebarOpen, user }) => {
+const Navbar = ({ isSidebarOpen, setIsSidebarOpen, user, isNonMobile }) => {
   const dispatch = useDispatch();
   const theme = useTheme();
+  const isNonSmallMobile = useMediaQuery('(min-width: 400px)');
 
   const [anchorEl, setAnchorEl] = useState(null);
   const isOpen = Boolean(anchorEl);
@@ -47,17 +49,21 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen, user }) => {
           <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
             <MenuIcon />
           </IconButton>
-          <FlexBetween
-            backgroundColor={theme.palette.background.alt}
-            borderRadius='9px'
-            gap='3rem'
-            p='0.1rem 1.5rem'
-          >
-            <InputBase placeholder='Search...' />
-            <IconButton>
-              <Search />
-            </IconButton>
-          </FlexBetween>
+          {isNonMobile && (
+            <>
+              <FlexBetween
+                backgroundColor={theme.palette.background.alt}
+                borderRadius='9px'
+                gap='3rem'
+                p='0.1rem 1.5rem'
+              >
+                <InputBase placeholder='Search...' />
+                <IconButton>
+                  <Search />
+                </IconButton>
+              </FlexBetween>
+            </>
+          )}
         </FlexBetween>
         {/* RIGHT SIDE */}
         <FlexBetween gap='1.5rem'>
@@ -82,30 +88,34 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen, user }) => {
                 gap: '1rem',
               }}
             >
-              <Box
-                component='img'
-                alt='profile'
-                src={profileImage}
-                height='32px'
-                width='32px'
-                borderRadius='50%'
-                sx={{ objectFit: 'cover' }}
-              />
-              <Box textAlign='left'>
-                <Typography
-                  fontWeight='bold'
-                  fontSize='0.85rem'
-                  sx={{ color: theme.palette.secondary[100] }}
-                >
-                  {user.name}
-                </Typography>
-                <Typography
-                  fontSize='0.75rem'
-                  sx={{ color: theme.palette.secondary[200] }}
-                >
-                  {user.occupation}
-                </Typography>
-              </Box>
+              {isNonSmallMobile && (
+                <>
+                  <Box
+                    component='img'
+                    alt='profile'
+                    src={profileImage}
+                    height='32px'
+                    width='32px'
+                    borderRadius='50%'
+                    sx={{ objectFit: 'cover' }}
+                  />
+                  <Box textAlign='left'>
+                    <Typography
+                      fontWeight='bold'
+                      fontSize='0.85rem'
+                      sx={{ color: theme.palette.secondary[100] }}
+                    >
+                      {user.name}
+                    </Typography>
+                    <Typography
+                      fontSize='0.75rem'
+                      sx={{ color: theme.palette.secondary[200] }}
+                    >
+                      {user.occupation}
+                    </Typography>
+                  </Box>
+                </>
+              )}
               <ArrowDropDownOutlined
                 sx={{ color: theme.palette.secondary[300], fontSize: '25px' }}
               />
